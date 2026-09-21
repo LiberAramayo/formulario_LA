@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Básico</title>
+    <!-- Vinculación con el archivo de estilos CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Checkbox oculto utilizado para cambiar entre estilos sin JS -->
+    <input type="checkbox" id="theme-toggle" class="theme-checkbox">
+
+    <!-- Contenedor principal donde se va aplicar el fondo y centrar el contenido -->
+    <div class="app-container">
+
+        <!-- Tarjeta blanca u oscura que envuelve el formulario -->
+        <div class="formulario-contenedor">
+            <h2 class="titulo">Formulario de Datos Personales</h2>
+
+            <!-- inicio del formulario-->
+            <form action="#" method="POST" class="formulario-grid">
+
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required minlength="3">
+
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido" name="apellido" required minlength="3">
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <!-- etiqueta con salto de línea para mantener la estructura visual -->
+                <label for="fecha_nacimiento">Fecha de<br>Nacimiento:</label>
+                <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required max="2008-08-31">
+
+                <label for="pais">País de<br>Residencia:</label>
+                <input type="text" id="pais" name="pais" required>
+
+                <!-- contenedor inferior para agrupar los botones -->
+                <div class="botones">
+                    <button type="submit" class="btn-enviar">Enviar</button>
+
+                    <!-- El "label" actúa como botón. Al hacerle clic, activa o desactiva el checkbox oculto superior -->
+                    <label for="theme-toggle" class="btn-estilo">
+                        <span class="text-default">Estilo de Alto Contraste</span>
+                        <span class="text-high-contrast">Estilo 1</span>
+                    </label>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

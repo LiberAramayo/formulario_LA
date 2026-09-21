@@ -1,0 +1,162 @@
+/* Reseteo básico y configuración de fuentes de texto */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Variables del Tema 1 (Estilo por defecto) */
+:root {
+    --bg-page: #f5f5f5;
+    --bg-form: #ffffff;
+    --text-main: #333333;
+    --text-label: #333333;
+    --border-input: #cccccc;
+    --bg-input: #ffffff;
+    --btn-enviar-bg: #007bff;
+    --btn-enviar-text: #ffffff;
+    --btn-estilo-bg: #6c757d;
+    --btn-estilo-text: #ffffff;
+    --shadow-form: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.theme-checkbox {
+    display: none; /* Oculta el checkbox real porque se usa su etiqueta para controlarlo */
+}
+
+/* Variables del Tema de Alto Contraste */
+/* Si el checkbox está marcado (checked), se sobreescriben los colores de la aplicación */
+#theme-toggle:checked ~ .app-container {
+    --bg-page: #121212;
+    --bg-form: #000000;
+    --text-main: #ffffff;
+    --text-label: #ffff00; /* Letras amarillas para mayor contraste */
+    --border-input: #ffffff;
+    --bg-input: #222222;
+    --btn-enviar-bg: #ffff00;
+    --btn-enviar-text: #000000;
+    --btn-estilo-bg: #ffffff;
+    --btn-estilo-text: #000000;
+    --shadow-form: 0 0 0 3px #ffffff; /* Se reemplaza la sombra por un borde sólido blanco */
+}
+
+/* Configuración general del cuerpo de la página */
+body {
+    background-color: var(--bg-page);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    font-size: 14px; /* Tamaño unificado para todo el texto */
+}
+
+/* Tarjeta del formulario */
+.formulario-contenedor {
+    background-color: var(--bg-form);
+    padding: 30px 40px;
+    border-radius: 4px;
+    box-shadow: var(--shadow-form);
+    width: 100%;
+    max-width: 480px;
+}
+
+.titulo {
+    text-align: center;
+    color: var(--text-main);
+    margin-bottom: 30px;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* Cuadrícula (Grid) para alinear etiquetas e inputs en dos columnas */
+.formulario-grid {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    row-gap: 20px;
+    align-items: center; /* Para centrar verticalmente ambos elementos de cada fila */
+}
+
+label {
+    font-weight: bold;
+    color: var(--text-label);
+}
+
+/* Para que las cajas de texto abarquen todo el ancho disponible en su columna */
+input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--border-input);
+    border-radius: 4px;
+    background-color: var(--bg-input);
+    color: var(--text-main);
+    font-size: inherit;
+    outline: none;
+}
+
+/* Borde azul cuando hacemos clic en una caja para escribir */
+input:focus {
+    border-color: var(--btn-enviar-bg);
+}
+
+/* Esto invierte el color del ícono del calendario en el modo oscuro para que se vea blanco */
+#theme-toggle:checked ~ .app-container input::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+/* Zona inferior de los botones */
+.botones {
+    grid-column: 1 / -1; /* Permite que este contenedor ocupe todo el ancho (ambas columnas) */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+/* Estilos compartidos para ambos botones */
+.btn-enviar, .btn-estilo {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1em;
+    text-align: center;
+}
+
+/* Estilo específico para el botón de enviar */
+.btn-enviar {
+    background-color: var(--btn-enviar-bg);
+    color: var(--btn-enviar-text);
+    font-weight: normal;
+    width: 120px; /* Ancho fijo para mantener semejanza con el diseño original */
+}
+
+/* Estilo específico para el botón de cambio de diseño */
+.btn-estilo {
+    background-color: var(--btn-estilo-bg);
+    color: var(--btn-estilo-text);
+    display: inline-block;
+    padding: 10px 20px;
+}
+
+/* Lógica para intercambiar los textos del botón sin usar JavaScript */
+.text-high-contrast {
+    display: none; /* Por defecto se oculta el texto de alto contraste */
+}
+
+#theme-toggle:checked ~ .app-container .text-default {
+    display: none; /* Al activarse el contraste, se oculta el texto original */
+}
+
+#theme-toggle:checked ~ .app-container .text-high-contrast {
+    display: inline; /* se muestra el de contraste ("Estilo 1") */
+}
