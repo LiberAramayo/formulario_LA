@@ -42,16 +42,20 @@
                 <!-- contenedor inferior para agrupar los botones -->
                 <div class="botones">
                     <button type="submit" class="btn-enviar">Enviar</button>
-
-                    <!-- El "label" actúa como botón. Al hacerle clic, activa o desactiva el checkbox oculto superior -->
                     <label for="theme-toggle" class="btn-estilo">
                         <span class="text-default">Estilo de Alto Contraste</span>
                         <span class="text-high-contrast">Estilo 1</span>
                     </label>
                 </div>
+                
+                <!-- NUEVO: Contenedor para el mensaje de validación -->
+                <div id="mensaje-estado" style="margin-top: 15px; text-align: center; font-weight: bold;"></div>
             </form>
         </div>
     </div>
+
+    <!-- NUEVO: Vinculación del archivo JavaScript -->
+    <script src="app.js"></script>
 </body>
 
 </html>
