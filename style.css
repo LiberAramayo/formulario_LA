@@ -160,3 +160,9 @@ input:focus {
 #theme-toggle:checked ~ .app-container .text-high-contrast {
     display: inline; /* se muestra el de contraste ("Estilo 1") */
 }
+
+#mensaje-estado {
+    grid-column: 1 / -1;
+    width: 100%;
+    margin-top: 15px;
+}
